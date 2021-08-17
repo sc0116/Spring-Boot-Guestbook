@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3307/bootex
+    username: bootuser
+    password: bootuser!
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+  thymeleaf:
+    cache: false
+
+server:
+  port: 5358
