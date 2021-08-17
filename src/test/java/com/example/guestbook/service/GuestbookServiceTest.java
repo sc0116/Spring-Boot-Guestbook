@@ -1,0 +1,26 @@
+package com.example.guestbook.service;
+
+import com.example.guestbook.dto.GuestbookDTO;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+@SpringBootTest
+class GuestbookServiceTest {
+
+    @Autowired
+    private GuestbookService service;
+
+    @Test
+    public void testRegister() {
+        GuestbookDTO guestbookDTO = GuestbookDTO.builder()
+                .title("Sample Title...")
+                .content("Sample content...")
+                .writer("user0")
+                .build();
+
+        System.out.println(service.register(guestbookDTO));
+    }
+}
