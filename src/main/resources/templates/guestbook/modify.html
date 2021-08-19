@@ -6,6 +6,8 @@
 
         <form action="/guestbook/modify" method="post">
             <input type="hidden" name="page" th:value="${requestDTO.page}">
+            <input type="hidden" name="type" th:value="${requestDTO.type}">
+            <input type="hidden" name="keyword" th:value="${requestDTO.keyword}">
 
             <div class="form-group">
                 <label >#</label>
@@ -62,15 +64,21 @@
             });
 
             $(".listBtn").click(function () {
-                var pageInfo = $("input[name='page']");
+                //var pageInfo = $("input[name='page']");
+                var page = $("input[name='page']");
+                var type = $("input[name='type']");
+                var keyword = $("input[name='keyword']");
 
                 actionForm.empty(); //form 태그의 모든 내용을 지우고,
-                actionForm.append(pageInfo); //목록 페이지 이동에 필요한 내용을 다시 추가
+
+                actionForm.append(page); //목록 페이지 이동에 필요한 내용을 다시 추가
+                actionForm.append(type);
+                actionForm.append(keyword);
+
                 actionForm
                 .attr("action", "/guestbook/list")
                 .attr("method", "get");
 
-                console.log(actionForm.html());
                 actionForm.submit();
             });
         </script>
